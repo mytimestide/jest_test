@@ -10,20 +10,16 @@ test('toDoList 初始化列表为空', () => {
 test('toDoList 应该给Header 传递一个增加undoList 内容的方法', () => {
     const wrapper = shallow(<TodoList />);
     const Header = wrapper.find('Header')
-    expect(Header.prop('addUndoItem')).toBe(wrapper.instance().addUndoItem)
+    expect(Header.prop('addUndoItem')).toBeTruthy()
 });
 
 
 test('当 Header 回车时，undoList 应该新增内容', () => {
     const wrapper = shallow(<TodoList />);
-    const Header = wrapper.find('Header')
-    const addFunc = Header.prop('addUndoItem');
-    const inputElem = wrapper.find("[data-test='input']");
-    addFunc('学习 JEST')
-    // expect().toBe(wrapper.instance().addUndoItem)
+    wrapper.instance().addUndoItem('学习 React')
     expect(wrapper.state('undoList').length).toBe(1)
-    expect(wrapper.state('undoList')[0]).toBe('学习 JEST')
-    addFunc('学习 JEST2')
+    expect(wrapper.state('undoList')[0]).toBe('学习 React')
+    wrapper.instance().addUndoItem('学习 React2')
     expect(wrapper.state('undoList').length).toBe(2)
     // expect(inputElem.prop('value')).toBe('')
 });
