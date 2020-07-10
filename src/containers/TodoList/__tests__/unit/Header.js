@@ -10,6 +10,11 @@ Enzyme.configure({adapter: new Adapter()})
 //     expect(inputElem.prop('value')).toEqual('')
 // });
 
+test('Header 渲染样式正常',()=>{
+    const wrapper = shallow(<Header />)
+    expect(wrapper).toMatchSnapshot();
+})
+
 test('Header组件包含一个input框,当用户输入是，会跟随变化', () => {
     const wrapper = shallow(<Header />)
     const inputElem = wrapper.find("[data-test='input']");
