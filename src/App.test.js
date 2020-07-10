@@ -13,7 +13,7 @@ test('renders learn react link', () => {
   // const wrapper = shallow(<App />)
   // console.log(expect(wrapper.find('.App')));
   const wrapper = mount(<App />)
-  expect(wrapper).toMatchSnapshot()
+  // expect(wrapper).toMatchSnapshot()
   // const container = wrapper.find('[data-test="container"]')
   // expect(container).toExist();
   // expect(container).toHaveProp('title','times');
